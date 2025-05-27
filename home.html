@@ -58,5 +58,17 @@
     <div class="folder-icon" onclick="location.href='folder_taller4.html'"></div>
     <div class="folder-icon" onclick="location.href='folder_taller5.html'"></div>
   </div>
+  <div class="enter-next" id="continue">Presiona enter para continuar</div>
+
+<script>
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      document.getElementById('continue').style.display = 'block';
+    }
+    if (event.key === 'Enter' && document.getElementById('continue').style.display === 'block') {
+      window.location.href = 'glosario.html';
+    }
+  });
+</script>
 </body>
 </html>
