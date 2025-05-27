@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Intro Semiótica</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff88;
+      font-family: 'Courier New', monospace;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #text {
+      width: 90%;
+      font-size: 1.2rem;
+      border-right: 2px solid #00ff88;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 6s steps(90, end), blink 0.7s step-end infinite;
+      text-align: center;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #00ff88 }
+    }
+
+    #continue {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #00ff88;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 6.5s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .fade-out {
+      animation: fadeOut 1s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(1.03);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="text">
+    Semiótica (σημειωτικός, sēmeiōtikós, griego) estudio de los signos en la vida social.
+  </div>
+  <div id="continue">presiona enter para continuar</div>
+
+  <script>
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = "info.html";
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+</html>
