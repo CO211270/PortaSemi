@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Taller 2 - Bolsón Expansible</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .popup-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .popup {
+      background-color: white;
+      color: black;
+      width: 400px;
+      max-height: 90vh;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+      z-index: 2;
+      overflow-y: auto;
+    }
+    .popup h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .popup .page-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .popup p, .popup table, .popup .stars, .popup .photos {
+      display: none;
+    }
+    .active {
+      display: block !important;
+    }
+    .popup table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+    .popup table td {
+      border: 1px solid #999;
+      padding: 6px;
+    }
+    .popup table td[colspan] {
+      text-align: center;
+      font-weight: bold;
+      background-color: #f0f0f0;
+    }
+    .stars {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+    .star {
+      font-size: 1.5rem;
+      color: #bbb;
+    }
+    .star.filled {
+      color: black;
+    }
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .photos img {
+      width: 45%;
+      border: 2px solid #333;
+      border-radius: 6px;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      z-index: 1;
+    }
+    .nav-left {
+      margin-right: 10px;
+    }
+    .nav-right {
+      margin-left: 10px;
+    }
+    .nav-buttons button {
+      background: transparent;
+      border: none;
+      color: grey;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: grey;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="nav-buttons nav-left">
+      <button onclick="changePage(-1)">&#x25C0;</button>
+    </div>
+
+    <div class="popup" id="popup">
+      <button class="close-btn" onclick="window.location.href='home.html'">✖</button>
+      <h1>BOLSÓN EXPANSIBLE</h1>
+
+      <p class="page active"><span class="page-title">Concepto</span><br>
+      Gula.</p>
+
+      <p class="page"><span class="page-title">Descripción de la actividad</span><br>
+      Desarrollo de un bolsón conceptual inspirado en uno de los 7 pecados capitales (Pecado capital asignado: gula).</p>
+
+      <p class="page"><span class="page-title">Descripción del producto</span><br>
+      Diseñado para adaptarse a cualquier necesidad, con su capacidad oculta permite llevar siempre más de lo esperado. Con múltiples compartimentos estratégicamente distribuidos, cierres funcionales y detalles que evocan el consumismo sin límites, esta mochila no solo representa la gula, sino que la convierte en un estilo de vida. Diseñado para aquellos que nunca tienen suficiente.</p>
+
+      <p class="page"><span class="page-title">Fundamento conceptual</span><br>
+      El diseño de este bolsón surge de la necesidad de representar la gula no solo como un exceso de comida, sino como un impulso insaciable, en este caso, de acumulación y almacenamiento. Este bolsón fusiona funcionalidad y concepto a través de una estructura compacta pero expandible, múltiples compartimentos y materiales que refuerzan la idea de acumulación descontrolada. El techwear, con su enfoque en utilidad y modularidad, es el estilo perfecto para reflejar este pecado capital desde una perspectiva moderna y práctica. Cada elemento del diseño, desde los cierres expansibles hasta los bolsillos adicionales, simbolizan el deseo de tener más, de nunca estar satisfecho, de maximizar la capacidad más allá de lo necesario. Este bolsón es más que un accesorio: es una representación tangible de un deseo sin límites; planteando la gula desde un enfoque visual y funcional, así como una reflexión sobre el consumo desmedido en la sociedad actual.</p>
+
+      <table class="page">
+        <tr><td colspan="2">GASTOS</td></tr>
+        <tr><td>Telas para forros de carro (roja y café)</td><td>recicladas</td></tr>
+        <tr><td>Cartón para los moldes</td><td>reciclados</td></tr>
+        <tr><td>Papel para patrones</td><td>reciclados</td></tr>
+        <tr><td>Hilos (negro y rojo)</td><td rowspan="4">en casa</td></tr>
+        <tr><td>Regla</td></tr>
+        <tr><td>Agujas</td></tr>
+        <tr><td>Tijeras</td></tr>
+        <tr><td>Zíper blanco 15cm</td><td>$2.00</td></tr>
+        <tr><td>Desarmador eléctrico</td><td rowspan="2">prestado</td></tr>
+        <tr><td>Destornillador</td></tr>
+      </table>
+
+      <div class="stars page">
+        <div class="page-title">Calificación</div>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+      </div>
+
+      <div class="photos page">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+3" alt="Foto 3">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+4" alt="Foto 4">
+      </div>
+    </div>
+
+    <div class="nav-buttons nav-right">
+      <button onclick="changePage(1)">&#x25B6;</button>
+    </div>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    let current = 0;
+
+    function showPage(index) {
+      pages.forEach(p => p.classList.remove('active'));
+      pages[index].classList.add('active');
+    }
+
+    function changePage(dir) {
+      current += dir;
+      if (current < 0) current = pages.length - 1;
+      if (current >= pages.length) current = 0;
+      showPage(current);
+    }
+
+    showPage(current);
+  </script>
+</body>
+</html>

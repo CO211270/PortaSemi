@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Taller 3 - La La Land</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .popup-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .popup {
+      background-color: white;
+      color: black;
+      width: 400px;
+      max-height: 90vh;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+      z-index: 2;
+      overflow-y: auto;
+    }
+    .popup h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .popup .page-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .popup p, .popup ul, .popup table, .popup .stars, .popup .photos {
+      display: none;
+    }
+    .active {
+      display: block !important;
+    }
+    .popup table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+    .popup table td {
+      border: 1px solid #999;
+      padding: 6px;
+    }
+    .popup table td[colspan] {
+      text-align: center;
+      font-weight: bold;
+      background-color: #f0f0f0;
+    }
+    .stars {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+    .star {
+      font-size: 1.5rem;
+      color: #bbb;
+    }
+    .star.filled {
+      color: black;
+    }
+    .star.half {
+      background: linear-gradient(to right, black 50%, #bbb 50%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .photos img {
+      width: 45%;
+      border: 2px solid #333;
+      border-radius: 6px;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      z-index: 1;
+    }
+    .nav-left {
+      margin-right: 10px;
+    }
+    .nav-right {
+      margin-left: 10px;
+    }
+    .nav-buttons button {
+      background: transparent;
+      border: none;
+      color: grey;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: grey;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="nav-buttons nav-left">
+      <button onclick="changePage(-1)">&#x25C0;</button>
+    </div>
+
+    <div class="popup" id="popup">
+      <button class="close-btn" onclick="window.location.href='home.html'">✖</button>
+      <h1>LA LA LAND</h1>
+
+      <p class="page active"><span class="page-title">Canción asignada</span><br>
+      Mia & Sebastian theme - La La Land</p>
+
+      <p class="page"><span class="page-title">Descripción de la actividad</span><br>
+      Desarrollo de producto descriptivo de una canción. Concepto: Mia & Sebastian theme.</p>
+
+      <p class="page"><span class="page-title">Descripción del producto</span><br>
+      Una caja de música inspirada en el tema de Mia y Sebastian, de la película La La Land. A través de su diseño nostálgico y su melodía inconclusa, este objeto busca capturar la esencia de un amor que fue profundo pero no eterno. Representa los sueños compartidos, las decisiones difíciles y la belleza de los momentos que, aunque fugaces, dejan huellas para siempre. Así como la canción, esta cajita nos recuerda que no todos los finales deben ser felices para ser significativos.</p>
+
+      <p class="page"><span class="page-title">Entrevista</span><br>
+      Para este taller decidí entrevistar a una persona, escogida por mí no sólo por su fanatismo hacia esta película, sino que su facilidad para las palabras. Preguntas:<br>
+      1. ¿Qué te transmite esta canción? En cuanto a sentimientos.<br>
+      2. ¿Qué color relacionas con esta canción?<br>
+      3. ¿Qué tonos relacionas con esta canción? Cálidos o fríos.<br>
+      4. ¿Qué forma relacionas a esta canción? Puntudo o redondo.<br>
+      5. ¿Qué textura relacionas a esta canción? Áspero o suave, duro o blando.<br>
+      6. ¿Qué estado de la materia piensas al escuchar la canción?</p>
+
+      <table class="page">
+        <tr><td colspan="2">MEDIDAS</td></tr>
+        <tr><td>Ancho (frontal)</td><td>22 cm</td></tr>
+        <tr><td>Altura (cerrada)</td><td>14 cm</td></tr>
+        <tr><td>Profundidad (fondo)</td><td>15 cm</td></tr>
+        <tr><td>Gavetas laterales</td><td>7 cm c/u</td></tr>
+        <tr><td>Compartimento secreto</td><td>10 x 7 cm aprox.</td></tr>
+        <tr><td>Figurita interior decorativa</td><td>4 - 5 cm altura</td></tr>
+      </table>
+
+      <div class="stars page">
+        <div class="page-title">Calificación</div>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star half">★</span>
+        <span class="star">★</span>
+      </div>
+
+      <div class="photos page">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+3" alt="Foto 3">
+      </div>
+    </div>
+
+    <div class="nav-buttons nav-right">
+      <button onclick="changePage(1)">&#x25B6;</button>
+    </div>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    let current = 0;
+
+    function showPage(index) {
+      pages.forEach(p => p.classList.remove('active'));
+      pages[index].classList.add('active');
+    }
+
+    function changePage(dir) {
+      current += dir;
+      if (current < 0) current = pages.length - 1;
+      if (current >= pages.length) current = 0;
+      showPage(current);
+    }
+
+    showPage(current);
+  </script>
+</body>
+</html>

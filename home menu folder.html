@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bitácora - Portafolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      background-color: black;
+      color: #00ff90;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      animation: fadeIn 2s ease forwards;
+    }
+    .folder-menu {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .folder-icon {
+      width: 120px;
+      height: 95px;
+      background-color: #00ff90;
+      clip-path: polygon(0% 20%, 20% 20%, 20% 0%, 100% 0%, 100% 100%, 0% 100%);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 15px #00ff90;
+    }
+    .folder-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #00ff90;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>BITÁCORA</h1>
+
+  <div class="folder-menu">
+    <div class="folder-icon" onclick="location.href='folder_taller1.html'"></div>
+    <div class="folder-icon" onclick="location.href='folder_taller2.html'"></div>
+    <div class="folder-icon" onclick="location.href='folder_taller3.html'"></div>
+    <div class="folder-icon" onclick="location.href='folder_taller4.html'"></div>
+    <div class="folder-icon" onclick="location.href='folder_taller5.html'"></div>
+  </div>
+</body>
+</html>

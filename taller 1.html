@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Taller 1 - Rediseño de Muletas</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .popup-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .popup {
+      background-color: white;
+      color: black;
+      width: 400px;
+      max-height: 90vh;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+      z-index: 2;
+      overflow-y: auto;
+    }
+    .popup h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .popup .page-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .popup p, .popup table, .popup .stars, .popup .photos {
+      display: none;
+    }
+    .active {
+      display: block !important;
+    }
+    .popup table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+    .popup table td {
+      border: 1px solid #999;
+      padding: 6px;
+    }
+    .popup table td[colspan] {
+      text-align: center;
+      font-weight: bold;
+      background-color: #f0f0f0;
+    }
+    .stars {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+    .star {
+      font-size: 1.5rem;
+      color: #bbb;
+    }
+    .star.filled {
+      color: black;
+    }
+    .photos {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .photos img {
+      width: 45%;
+      border: 2px solid #333;
+      border-radius: 6px;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      z-index: 1;
+    }
+    .nav-left {
+      margin-right: 10px;
+    }
+    .nav-right {
+      margin-left: 10px;
+    }
+    .nav-buttons button {
+      background: transparent;
+      border: none;
+      color: grey;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: grey;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-container">
+    <div class="nav-buttons nav-left">
+      <button onclick="changePage(-1)">&#x25C0;</button>
+    </div>
+
+    <div class="popup" id="popup">
+      <button class="close-btn" onclick="window.location.href='home.html'">✖</button>
+      <h1>REDISEÑO DE MULETAS</h1>
+
+      <p class="page active"><span class="page-title">Descripción de la actividad</span><br>
+      Para este taller los estudiantes desarrollarán un producto visual teniendo en cuenta la interactividad de los objetos utilizados durante la clase: muletas, pistola de silicón o taladro de mano.</p>
+
+      <p class="page"><span class="page-title">Descripción del producto</span><br>
+      Estructura basada en las patas de palo de los piratas con apoyo en la rodilla, permite descansar la pierna en una superficie acolchada, reduciendo el esfuerzo de los brazos.</p>
+
+      <p class="page"><span class="page-title">Problemas de las muletas tradicionales</span><br>
+      Dolor en axilas, comprensión nerviosa (neuropatía axilar o parálisis del nervio radial), dolor en muñecas y manos, fatiga muscular y desgaste en hombros, fricción, heridas y ampollas, poco equilibrio y coordinación (riesgo de caídas). Estas limitaciones refuerzan la necesidad del desarrollo de una alternativa más ergonómica.</p>
+
+      <table class="page">
+        <tr><td colspan="2">GASTOS</td></tr>
+        <tr><td>Tubos y caja de cartón</td><td>reciclados</td></tr>
+        <tr><td>Velcro, tapones plásticos y 1 tubo de PVC</td><td>reciclados</td></tr>
+        <tr><td>Abrazaderas de tornillo</td><td rowspan="4">Herramientas en casa</td></tr>
+        <tr><td>Regla</td></tr>
+        <tr><td>Cuchilla</td></tr>
+        <tr><td>Tijeras</td></tr>
+        <tr><td>Silicón líquido</td><td>$2.00</td></tr>
+        <tr><td>Desarmador eléctrico</td><td rowspan="2">Herramientas prestadas</td></tr>
+        <tr><td>Destornillador</td></tr>
+      </table>
+
+      <div class="stars page">
+        <div class="page-title">Calificación</div>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled">★</span>
+        <span class="star filled" style="clip-path: inset(0 50% 0 0);">★</span>
+      </div>
+
+      <div class="photos page">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+1" alt="Foto 1">
+        <img src="https://via.placeholder.com/300x200.png?text=Foto+2" alt="Foto 2">
+      </div>
+    </div>
+
+    <div class="nav-buttons nav-right">
+      <button onclick="changePage(1)">&#x25B6;</button>
+    </div>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    let current = 0;
+
+    function showPage(index) {
+      pages.forEach(p => p.classList.remove('active'));
+      pages[index].classList.add('active');
+    }
+
+    function changePage(dir) {
+      current += dir;
+      if (current < 0) current = pages.length - 1;
+      if (current >= pages.length) current = 0;
+      showPage(current);
+    }
+
+    showPage(current);
+  </script>
+</body>
+</html>

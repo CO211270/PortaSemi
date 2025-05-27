@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Glosario</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: #00ff88;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4rem;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
+      animation: glow 1.5s ease-in-out infinite alternate;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #00ff88; }
+      to { text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88; }
+    }
+
+    #enterMsg {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #00ff88;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 3s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .fade-out {
+      animation: fadeOut 1s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">Glosario</h1>
+  <div id="enterMsg">presiona enter para continuar</div>
+
+  <script>
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = "glosario_contenido.html";
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+</html>
