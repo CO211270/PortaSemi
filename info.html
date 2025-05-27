@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Info Personal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+    body {
+      background-color: black;
+      color: #00ff90;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+    .enter {
+      margin-top: 30px;
+      font-size: 1rem;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Semiótica 02T</h1>
+  <p>Sofía Elizabeth Castillo Olmos<br>CO211270<br>Universidad Don Bosco</p>
+  <div class="enter">Presiona enter para continuar</div>
+
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        window.location.href = "racional.html";
+      }
+    });
+  </script>
+</body>
+</html>
